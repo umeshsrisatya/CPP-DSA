@@ -19,11 +19,12 @@ public:
         }
         while(head != nullptr){
             if(mpp.find(head->val) == mpp.end() ){
-                node->next = new ListNode(head->val);
+                node->next = head;
                 node = node->next;
             }
             head = head->next;
         }
+        node->next = nullptr;
         return temp->next;
     }
 };
