@@ -11,14 +11,15 @@
 class Solution {
 public:
     ListNode* modifiedList(vector<int>& nums, ListNode* head) {
+        bitset<100001> Ns = 0;
         ListNode* node = new ListNode();
         ListNode* temp =node;
         map <int,int> mpp;
         for(int i : nums){
-            mpp[i] = 1;
+            Ns[i] = 1;
         }
         while(head != nullptr){
-            if(mpp.find(head->val) == mpp.end() ){
+            if(Ns[head->val] == 0){
                 node->next = head;
                 node = node->next;
             }
