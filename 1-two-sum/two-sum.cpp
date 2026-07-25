@@ -1,18 +1,15 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
-        map<int,int> mp; // need , index
+        map<int,int> mpp;
         int n = nums.size();
         for(int i = 0; i < n; i++){
-            if(mp.find(nums[i]) != mp.end()){
-                auto it =  mp.find(nums[i]) ;
-                return {i,it->second};
+            int required = target-nums[i];
+            if(mpp.empty() || mpp.find(required) == mpp.end()){
+                mpp.insert({nums[i], i});
             }else{
-                mp.insert({target-nums[i], i});
+                return {i, mpp[required]};
             }
-        }
-        return{-1,-1};
+        }return {-1,-1};
     }
 };
