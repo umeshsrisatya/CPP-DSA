@@ -5,7 +5,7 @@ public:
         long temp = 0;
         while(x){
             int digit = x % 10;
-            if((temp*10+digit) >= 2147483647 || (temp*10+digit) <= -2147483647){
+            if((temp*10+digit) >= INT_MAX || (temp*10+digit) <= -INT_MAX){
                 return 0;
             }
             temp = temp * 10 + digit;
